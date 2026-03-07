@@ -8,14 +8,16 @@ export default function Home() {
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-mc-gray/15">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center gap-3">
-          <Image src="/logo.png" alt="Mach Computing" width={36} height={36} />
-          <Image
-            src="/text_logo.png"
-            alt="MACHCOMPUTING"
-            width={160}
-            height={20}
-            className="hidden sm:block"
-          />
+          <a href="https://machcomputing.com" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <Image src="/logo.png" alt="Mach Computing" width={36} height={36} />
+            <Image
+              src="/text_logo.png"
+              alt="MACHCOMPUTING"
+              width={160}
+              height={20}
+              className="hidden sm:block"
+            />
+          </a>
         </div>
       </header>
 
@@ -35,7 +37,7 @@ export default function Home() {
       </section>
 
       {/* Projects */}
-      <section className="py-20 lg:py-28 bg-mc-dark/[0.02]">
+      <section id="projects" className="py-20 lg:py-28 bg-mc-dark/[0.02]">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl sm:text-4xl font-bold text-mc-dark tracking-tight">
             Projects

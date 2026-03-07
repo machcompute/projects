@@ -335,6 +335,9 @@ export function PageRankSimulation() {
           {mode === "add-node" && "Click on empty space to add a new node."}
           {mode === "add-edge" && "Drag from one node to another to create a directed edge."}
         </p>
+        <div className="mt-4">
+          <AlgorithmExplainer />
+        </div>
       </div>
 
       {/* Sidebar */}
@@ -368,7 +371,6 @@ export function PageRankSimulation() {
           convergenceDelta={sim.convergenceDelta}
           hasConverged={sim.hasConverged}
         />
-        <AlgorithmExplainer />
       </div>
     </div>
   );
