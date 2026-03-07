@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { projects } from "@/app/lib/projects";
 import { ProjectCard } from "@/app/components/ProjectCard";
 
@@ -6,10 +7,15 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-mc-gray/15">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center">
-          <span className="text-lg font-bold tracking-tight text-mc-dark">
-            Mach Computing
-          </span>
+        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center gap-3">
+          <Image src="/logo.png" alt="Mach Computing" width={36} height={36} />
+          <Image
+            src="/text_logo.png"
+            alt="MACHCOMPUTING"
+            width={160}
+            height={20}
+            className="hidden sm:block"
+          />
         </div>
       </header>
 
@@ -50,13 +56,16 @@ export default function Home() {
       <footer className="bg-mc-dark text-white py-16">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between gap-10">
-            <div>
-              <span className="font-bold text-lg tracking-tight">
-                Mach Computing
-              </span>
-              <p className="mt-2 text-sm text-white/50">
-                Algorithm simulations at mach speed.
-              </p>
+            <div className="flex items-start gap-3">
+              <Image src="/logo.png" alt="Mach Computing" width={32} height={32} />
+              <div>
+                <span className="font-bold text-lg tracking-tight">
+                  Mach Computing
+                </span>
+                <p className="mt-1 text-sm text-white/50">
+                  Algorithm simulations at mach speed.
+                </p>
+              </div>
             </div>
             <div className="flex gap-12">
               <div>

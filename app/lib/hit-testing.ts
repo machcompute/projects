@@ -1,7 +1,7 @@
 import type { GraphNode } from "./graph-types";
 
-const MIN_R = 18;
-const MAX_R = 50;
+const MIN_R = 12;
+const MAX_R = 32;
 
 export function getNodeRadius(node: GraphNode, allNodes: GraphNode[]): number {
   if (allNodes.length === 0) return MIN_R;

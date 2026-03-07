@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { PageRankSimulation } from "@/app/components/PageRankSimulation";
 
@@ -17,31 +18,22 @@ export default function PageRankPage() {
           <div className="flex items-center gap-4">
             <Link
               href="/"
-              className="text-sm font-medium text-mc-gray/60 hover:text-mc-dark transition-colors flex items-center gap-1.5"
+              className="flex items-center gap-2.5 hover:opacity-80 transition-opacity"
             >
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-              Home
+              <Image src="/logo.png" alt="Mach Computing" width={36} height={36} />
+              <Image
+                src="/text_logo.png"
+                alt="MACHCOMPUTING"
+                width={160}
+                height={20}
+                className="hidden sm:block"
+              />
             </Link>
             <span className="text-mc-gray/20">|</span>
             <span className="text-lg font-bold tracking-tight text-mc-dark">
               PageRank Simulator
             </span>
           </div>
-          <span className="rounded-full bg-mc-lavender/15 text-mc-dark/70 text-xs font-medium px-3 py-1">
-            mcompute
-          </span>
         </div>
       </header>
 
