@@ -1,15 +1,15 @@
 "use client";
 
 import { useRef, useEffect, useCallback, useState } from "react";
-import { drawGraph } from "@/app/lib/canvas-renderer";
-import { forceLayoutTick } from "@/app/lib/force-layout";
-import { findNodeAt } from "@/app/lib/hit-testing";
+import { drawGraph } from "@/app/lib/pagerank/renderer";
+import { forceLayoutTick } from "@/app/lib/pagerank/force-layout";
+import { findNodeAt } from "@/app/lib/pagerank/hit-testing";
 import type {
   GraphNode,
   GraphEdge,
   InteractionMode,
   EdgeDraft,
-} from "@/app/lib/graph-types";
+} from "@/app/lib/pagerank/types";
 
 interface GraphCanvasProps {
   nodes: GraphNode[];

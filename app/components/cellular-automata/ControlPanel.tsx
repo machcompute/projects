@@ -1,6 +1,6 @@
 "use client";
 
-import type { GridSize } from "@/app/lib/ca-types";
+import type { GridSize } from "@/app/lib/cellular-automata/types";
 
 interface ControlPanelProps {
   isRunning: boolean;

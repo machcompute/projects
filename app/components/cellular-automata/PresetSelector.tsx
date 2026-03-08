@@ -1,6 +1,6 @@
 "use client";
 
-import { presets } from "@/app/lib/ca-presets";
+import { presets } from "@/app/lib/cellular-automata/presets";
 
 interface PresetSelectorProps {
   onLoadPreset: (index: number) => void;

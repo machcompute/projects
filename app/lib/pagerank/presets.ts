@@ -1,4 +1,4 @@
-import type { Graph, GraphNode, GraphEdge } from "./graph-types";
+import type { Graph, GraphNode, GraphEdge } from "./types";
 
 function node(id: string, label: string, x: number, y: number): GraphNode {
   return { id, label, x, y, vx: 0, vy: 0, rank: 0, prevRank: 0, pinned: false };

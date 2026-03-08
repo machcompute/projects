@@ -1,5 +1,5 @@
-import type { CAGrid } from "./ca-types";
-import { createEmptyGrid, placePattern, randomFillGrid } from "./ca-rules";
+import type { CAGrid } from "./types";
+import { createEmptyGrid, placePattern, randomFillGrid } from "./rules";
 
 export interface CAPreset {
   name: string;

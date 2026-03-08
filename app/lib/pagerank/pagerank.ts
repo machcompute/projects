@@ -1,4 +1,4 @@
-import type { GraphNode, GraphEdge } from "./graph-types";
+import type { GraphNode, GraphEdge } from "./types";
 
 export function performIteration(
   nodes: GraphNode[],

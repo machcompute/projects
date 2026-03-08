@@ -1,4 +1,4 @@
-import type { CAGrid, CARule } from "./ca-types";
+import type { CAGrid, CARule } from "./types";
 
 export const rules: CARule[] = [
   {

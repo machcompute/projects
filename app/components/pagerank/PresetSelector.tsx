@@ -1,6 +1,6 @@
 "use client";
 
-import { presets } from "@/app/lib/graph-presets";
+import { presets } from "@/app/lib/pagerank/presets";
 
 interface PresetSelectorProps {
   onLoadPreset: (index: number) => void;

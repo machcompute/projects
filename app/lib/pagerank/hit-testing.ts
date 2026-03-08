@@ -1,4 +1,4 @@
-import type { GraphNode } from "./graph-types";
+import type { GraphNode } from "./types";
 
 const MIN_R = 12;
 const MAX_R = 32;

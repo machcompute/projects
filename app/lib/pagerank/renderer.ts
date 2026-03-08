@@ -1,4 +1,4 @@
-import type { GraphNode, GraphEdge, EdgeDraft } from "./graph-types";
+import type { GraphNode, GraphEdge, EdgeDraft } from "./types";
 import { getNodeRadius } from "./hit-testing";
 
 const C = {

@@ -6,14 +6,14 @@ import { ControlPanel } from "./ControlPanel";
 import { InfoPanel } from "./InfoPanel";
 import { PresetSelector } from "./PresetSelector";
 import { AlgorithmExplainer } from "./AlgorithmExplainer";
-import { performIteration, initializeRanks } from "@/app/lib/pagerank";
-import { presets } from "@/app/lib/graph-presets";
+import { performIteration, initializeRanks } from "@/app/lib/pagerank/pagerank";
+import { presets } from "@/app/lib/pagerank/presets";
 import type {
   Graph,
   GraphNode,
   SimulationState,
   InteractionMode,
-} from "@/app/lib/graph-types";
+} from "@/app/lib/pagerank/types";
 
 // --- Graph reducer ---
 

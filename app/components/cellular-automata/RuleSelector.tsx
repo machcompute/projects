@@ -1,6 +1,6 @@
 "use client";
 
-import { rules } from "@/app/lib/ca-rules";
+import { rules } from "@/app/lib/cellular-automata/rules";
 
 interface RuleSelectorProps {
   activeRuleIndex: number;

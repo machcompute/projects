@@ -1,4 +1,4 @@
-import type { GraphNode, GraphEdge } from "./graph-types";
+import type { GraphNode, GraphEdge } from "./types";
 
 const REPULSION = 5000;
 const ATTRACTION = 0.002;

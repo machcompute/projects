@@ -1,4 +1,4 @@
-import type { CAGrid, CellCoord } from "./ca-types";
+import type { CAGrid, CellCoord } from "./types";
 
 const C = {
   mint: "#98DFAF",

@@ -14,9 +14,9 @@ import {
   stepGrid,
   countPopulation,
   randomFillGrid,
-} from "@/app/lib/ca-rules";
-import { presets } from "@/app/lib/ca-presets";
-import type { CAGrid, CASimulationState, CellCoord, GridSize } from "@/app/lib/ca-types";
+} from "@/app/lib/cellular-automata/rules";
+import { presets } from "@/app/lib/cellular-automata/presets";
+import type { CAGrid, CASimulationState, CellCoord, GridSize } from "@/app/lib/cellular-automata/types";
 
 // --- Grid sizes ---
 

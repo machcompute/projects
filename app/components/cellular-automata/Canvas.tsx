@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef, useEffect, useCallback, useState } from "react";
-import { drawGrid } from "@/app/lib/ca-renderer";
-import type { CAGrid, CellCoord } from "@/app/lib/ca-types";
+import { drawGrid } from "@/app/lib/cellular-automata/renderer";
+import type { CAGrid, CellCoord } from "@/app/lib/cellular-automata/types";
 
 interface CanvasProps {
   grid: CAGrid;
