@@ -18,6 +18,12 @@ Interactive directed-graph visualization of Google's PageRank algorithm. Add nod
 
 `/projects/cellular-automata`
 
+### Lattice Boltzmann Fluid Simulation
+
+Interactive D2Q9 Lattice Boltzmann fluid simulator. Draw obstacles in a flow channel, adjust viscosity and inlet speed, and visualize velocity, vorticity, and density fields in real time.
+
+`/projects/lattice-boltzmann`
+
 ## Stack
 
 - **Next.js 16** with App Router
@@ -40,16 +46,19 @@ Open [localhost:3000](http://localhost:3000).
 ```
 app/
   components/
-    pagerank/          # PageRank UI components
-    cellular-automata/ # Cellular Automata UI components
-    ProjectCard.tsx    # Shared card component
+    pagerank/            # PageRank UI components
+    cellular-automata/   # Cellular Automata UI components
+    lattice-boltzmann/   # Lattice Boltzmann UI components
+    ProjectCard.tsx      # Shared card component
   lib/
-    pagerank/          # Graph types, renderer, force layout, presets
-    cellular-automata/ # Grid types, renderer, rules, presets
-    projects.ts        # Project metadata
+    pagerank/            # Graph types, renderer, force layout, presets
+    cellular-automata/   # Grid types, renderer, rules, presets
+    lattice-boltzmann/   # LBM algorithm, renderer, presets
+    projects.ts          # Project metadata
   projects/
-    layout.tsx         # Shared layout (header + main wrapper)
+    layout.tsx           # Shared layout (header + main wrapper)
     pagerank/page.tsx
     cellular-automata/page.tsx
+    lattice-boltzmann/page.tsx
   page.tsx             # Landing page
 ```

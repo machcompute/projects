@@ -26,4 +26,13 @@ export const projects: Project[] = [
     tags: ["TypeScript", "Next.js", "Canvas API", "Cellular Automata"],
     year: 2026,
   },
+  {
+    name: "Lattice Boltzmann Fluid Sim",
+    slug: "lattice-boltzmann",
+    description:
+      "Simulate fluid dynamics with the Lattice Boltzmann Method. Draw obstacles, tune viscosity and flow speed, and watch vortex streets emerge in real time.",
+    url: "/projects/lattice-boltzmann",
+    tags: ["TypeScript", "Next.js", "Canvas API", "Computational Fluid Dynamics"],
+    year: 2026,
+  },
 ];
