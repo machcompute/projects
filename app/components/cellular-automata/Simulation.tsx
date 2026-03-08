@@ -1,12 +1,12 @@
 "use client";
 
 import { useReducer, useState, useCallback, useEffect, useRef } from "react";
-import { CACanvas } from "./CACanvas";
-import { CAControlPanel } from "./CAControlPanel";
-import { CAInfoPanel } from "./CAInfoPanel";
-import { CAPresetSelector } from "./CAPresetSelector";
-import { CARuleSelector } from "./CARuleSelector";
-import { CAExplainer } from "./CAExplainer";
+import { Canvas } from "./Canvas";
+import { ControlPanel } from "./ControlPanel";
+import { InfoPanel } from "./InfoPanel";
+import { PresetSelector } from "./PresetSelector";
+import { RuleSelector } from "./RuleSelector";
+import { Explainer } from "./Explainer";
 import {
   rules,
   createEmptyGrid,
@@ -71,7 +71,7 @@ const DEFAULT_SIM: CASimulationState = {
 
 // --- Main component ---
 
-export function CellularAutomata() {
+export function Simulation() {
   const [grid, dispatch] = useReducer(
     gridReducer,
     null,
@@ -196,7 +196,7 @@ export function CellularAutomata() {
       {/* Canvas area */}
       <div className="flex-1 min-w-0">
         <div className="rounded-2xl border border-mc-gray/15 bg-white overflow-hidden">
-          <CACanvas
+          <Canvas
             grid={grid}
             hoverCell={hoverCell}
             onCellPaint={handleCellPaint}
@@ -209,18 +209,18 @@ export function CellularAutomata() {
             : "Click to toggle cells. Drag to paint. Right-click to erase."}
         </p>
         <div className="mt-4">
-          <CAExplainer />
+          <Explainer />
         </div>
       </div>
 
       {/* Sidebar */}
       <div className="w-full lg:w-80 xl:w-96 flex flex-col gap-4 shrink-0">
-        <CAPresetSelector onLoadPreset={handleLoadPreset} />
-        <CARuleSelector
+        <PresetSelector onLoadPreset={handleLoadPreset} />
+        <RuleSelector
           activeRuleIndex={sim.activeRuleIndex}
           onRuleChange={handleRuleChange}
         />
-        <CAControlPanel
+        <ControlPanel
           isRunning={sim.isRunning}
           speed={sim.speed}
           wrapMode={sim.wrapMode}
@@ -235,7 +235,7 @@ export function CellularAutomata() {
           onWrapToggle={handleWrapToggle}
           onGridSizeChange={handleGridSizeChange}
         />
-        <CAInfoPanel
+        <InfoPanel
           generation={sim.generation}
           population={sim.population}
           totalCells={grid.rows * grid.cols}

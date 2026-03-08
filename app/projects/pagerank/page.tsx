@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PageRankSimulation } from "@/app/components/PageRankSimulation";
+import { Simulation } from "@/app/components/pagerank/Simulation";
 
 export const metadata: Metadata = {
   title: "PageRank Simulation — Interactive Graph Algorithm Visualizer",
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function PageRankPage() {
-  return <PageRankSimulation />;
+  return <Simulation />;
 }

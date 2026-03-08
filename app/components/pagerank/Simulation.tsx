@@ -124,7 +124,7 @@ const DEFAULT_SIM: SimulationState = {
   hasConverged: false,
 };
 
-export function PageRankSimulation() {
+export function Simulation() {
   const [graph, dispatch] = useReducer(graphReducer, { nodes: [], edges: [] });
   const [sim, setSim] = useState<SimulationState>(DEFAULT_SIM);
   const [mode, setMode] = useState<InteractionMode>("select");

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { CellularAutomata } from "@/app/components/CellularAutomata";
+import { Simulation } from "@/app/components/cellular-automata/Simulation";
 
 export const metadata: Metadata = {
   title: "Cellular Automata — Interactive Grid Simulation",
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function CellularAutomataPage() {
-  return <CellularAutomata />;
+  return <Simulation />;
 }

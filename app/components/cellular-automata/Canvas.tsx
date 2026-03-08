@@ -4,19 +4,19 @@ import { useRef, useEffect, useCallback, useState } from "react";
 import { drawGrid } from "@/app/lib/ca-renderer";
 import type { CAGrid, CellCoord } from "@/app/lib/ca-types";
 
-interface CACanvasProps {
+interface CanvasProps {
   grid: CAGrid;
   hoverCell: CellCoord | null;
   onCellPaint: (row: number, col: number, value: 0 | 1) => void;
   onHoverChange: (cell: CellCoord | null) => void;
 }
 
-export function CACanvas({
+export function Canvas({
   grid,
   hoverCell,
   onCellPaint,
   onHoverChange,
-}: CACanvasProps) {
+}: CanvasProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [size, setSize] = useState({ w: 800, h: 600 });

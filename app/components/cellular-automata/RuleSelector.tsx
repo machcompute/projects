@@ -2,12 +2,12 @@
 
 import { rules } from "@/app/lib/ca-rules";
 
-interface CARuleSelectorProps {
+interface RuleSelectorProps {
   activeRuleIndex: number;
   onRuleChange: (index: number) => void;
 }
 
-export function CARuleSelector({ activeRuleIndex, onRuleChange }: CARuleSelectorProps) {
+export function RuleSelector({ activeRuleIndex, onRuleChange }: RuleSelectorProps) {
   return (
     <div className="rounded-2xl border border-mc-gray/15 bg-white p-5">
       <h3 className="text-sm font-semibold text-mc-dark uppercase tracking-wide mb-3">

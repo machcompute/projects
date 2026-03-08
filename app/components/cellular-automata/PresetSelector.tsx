@@ -2,11 +2,11 @@
 
 import { presets } from "@/app/lib/ca-presets";
 
-interface CAPresetSelectorProps {
+interface PresetSelectorProps {
   onLoadPreset: (index: number) => void;
 }
 
-export function CAPresetSelector({ onLoadPreset }: CAPresetSelectorProps) {
+export function PresetSelector({ onLoadPreset }: PresetSelectorProps) {
   return (
     <div className="rounded-2xl border border-mc-gray/15 bg-white p-5">
       <h3 className="text-sm font-semibold text-mc-dark uppercase tracking-wide mb-3">

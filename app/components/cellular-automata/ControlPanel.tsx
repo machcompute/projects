@@ -2,7 +2,7 @@
 
 import type { GridSize } from "@/app/lib/ca-types";
 
-interface CAControlPanelProps {
+interface ControlPanelProps {
   isRunning: boolean;
   speed: number;
   wrapMode: boolean;
@@ -18,7 +18,7 @@ interface CAControlPanelProps {
   onGridSizeChange: (index: number) => void;
 }
 
-export function CAControlPanel({
+export function ControlPanel({
   isRunning,
   speed,
   wrapMode,
@@ -32,7 +32,7 @@ export function CAControlPanel({
   onSpeedChange,
   onWrapToggle,
   onGridSizeChange,
-}: CAControlPanelProps) {
+}: ControlPanelProps) {
   return (
     <div className="rounded-2xl border border-mc-gray/15 bg-white p-5 space-y-5">
       <h3 className="text-sm font-semibold text-mc-dark uppercase tracking-wide">

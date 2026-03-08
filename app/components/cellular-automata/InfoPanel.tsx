@@ -1,6 +1,6 @@
 "use client";
 
-interface CAInfoPanelProps {
+interface InfoPanelProps {
   generation: number;
   population: number;
   totalCells: number;
@@ -8,13 +8,13 @@ interface CAInfoPanelProps {
   ruleNotation: string;
 }
 
-export function CAInfoPanel({
+export function InfoPanel({
   generation,
   population,
   totalCells,
   ruleName,
   ruleNotation,
-}: CAInfoPanelProps) {
+}: InfoPanelProps) {
   const density = totalCells > 0 ? ((population / totalCells) * 100).toFixed(1) : "0.0";
 
   return (
