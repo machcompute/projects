@@ -16,6 +16,8 @@ import {
   computeMaxSpeed,
   computeAvgDensity,
   computeCurl,
+  exportBarriersToImage,
+  importBarriersFromImage,
 } from "@/app/lib/lattice-boltzmann/lbm";
 import { presets } from "@/app/lib/lattice-boltzmann/presets";
 import {
@@ -359,6 +361,43 @@ export function Simulation() {
     setRenderTick((t) => t + 1);
   }, []);
 
+  const handleExportBarriers = useCallback(() => {
+    const g = gridRef.current;
+    const dataUrl = exportBarriersToImage(g);
+    const link = document.createElement("a");
+    link.download = `lbm-barriers-${g.cols}x${g.rows}.png`;
+    link.href = dataUrl;
+    link.click();
+  }, []);
+
+  const handleImportBarriers = useCallback((file: File) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const img = new Image();
+      img.onload = () => {
+        const g = gridRef.current;
+        const s = simRef.current;
+        importBarriersFromImage(g, img);
+        resetFlow(g, s.inletSpeed);
+
+        if (engineRef.current) {
+          engineRef.current.uploadGrid(g);
+          framesSinceReadback.current = 0;
+        }
+
+        setSim((prev) => ({
+          ...prev,
+          iteration: 0,
+          maxSpeed: computeMaxSpeed(g),
+          avgDensity: computeAvgDensity(g),
+        }));
+        setRenderTick((t) => t + 1);
+      };
+      img.src = reader.result as string;
+    };
+    reader.readAsDataURL(file);
+  }, []);
+
   const activeGridSize = gridSizes[sim.activeGridSizeIndex];
   const re = (sim.inletSpeed * activeGridSize.cols) / sim.viscosity;
 
@@ -423,6 +462,8 @@ export function Simulation() {
           onVisualModeChange={handleVisualModeChange}
           onComputeModeChange={handleComputeModeChange}
           onGridSizeChange={handleGridSizeChange}
+          onExportBarriers={handleExportBarriers}
+          onImportBarriers={handleImportBarriers}
         />
         <InfoPanel
           iteration={sim.iteration}

@@ -345,3 +345,63 @@ export function computeCurl(grid: LBMGrid): Float64Array {
   }
   return curl;
 }
+
+// --- Barrier map export/import ---
+
+export function exportBarriersToImage(grid: LBMGrid): string {
+  const { barriers, rows, cols } = grid;
+  const canvas = document.createElement("canvas");
+  canvas.width = cols;
+  canvas.height = rows;
+  const ctx = canvas.getContext("2d")!;
+  const imageData = ctx.createImageData(cols, rows);
+  const data = imageData.data;
+
+  for (let idx = 0; idx < rows * cols; idx++) {
+    const px = idx * 4;
+    // White = empty (fluid), Black = solid (barrier)
+    const val = barriers[idx] ? 0 : 255;
+    data[px] = val;
+    data[px + 1] = val;
+    data[px + 2] = val;
+    data[px + 3] = 255;
+  }
+
+  ctx.putImageData(imageData, 0, 0);
+  return canvas.toDataURL("image/png");
+}
+
+export function importBarriersFromImage(grid: LBMGrid, img: HTMLImageElement): void {
+  const { rows, cols } = grid;
+  const canvas = document.createElement("canvas");
+  canvas.width = cols;
+  canvas.height = rows;
+  const ctx = canvas.getContext("2d")!;
+  ctx.drawImage(img, 0, 0, cols, rows);
+
+  const imageData = ctx.getImageData(0, 0, cols, rows);
+  const data = imageData.data;
+
+  grid.barriers.fill(0);
+
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const idx = r * cols + c;
+
+      // Boundary cells are always fluid
+      if (r === 0 || r === rows - 1 || c === 0 || c === cols - 1) continue;
+
+      const px = idx * 4;
+      const lum = 0.299 * data[px] + 0.587 * data[px + 1] + 0.114 * data[px + 2];
+
+      // Dark = solid (barrier), Light = fluid
+      if (lum < 128) {
+        grid.barriers[idx] = 1;
+        for (let d = 0; d < 9; d++) grid.f[d][idx] = 0;
+        grid.density[idx] = 0;
+        grid.ux[idx] = 0;
+        grid.uy[idx] = 0;
+      }
+    }
+  }
+}

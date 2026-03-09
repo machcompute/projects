@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import type { VisualMode, ComputeMode, GridSize } from "@/app/lib/lattice-boltzmann/types";
 
 interface ControlPanelProps {
@@ -23,6 +24,8 @@ interface ControlPanelProps {
   onVisualModeChange: (mode: VisualMode) => void;
   onComputeModeChange: (mode: ComputeMode) => void;
   onGridSizeChange: (index: number) => void;
+  onExportBarriers: () => void;
+  onImportBarriers: (file: File) => void;
 }
 
 const visualModes: { value: VisualMode; label: string }[] = [
@@ -52,7 +55,10 @@ export function ControlPanel({
   onVisualModeChange,
   onComputeModeChange,
   onGridSizeChange,
+  onExportBarriers,
+  onImportBarriers,
 }: ControlPanelProps) {
+  const fileInputRef = useRef<HTMLInputElement>(null);
   return (
     <div className="rounded-2xl border border-mc-gray/15 bg-white p-5 space-y-5">
       <h3 className="text-sm font-semibold text-mc-dark uppercase tracking-wide">
@@ -103,6 +109,31 @@ export function ControlPanel({
         >
           Reset Flow
         </button>
+      </div>
+      <div className="flex gap-2">
+        <button
+          onClick={onExportBarriers}
+          className="flex-1 px-4 py-2 rounded-full border border-mc-gray/15 text-sm font-medium text-mc-dark hover:bg-mc-dark/[0.03] transition-colors cursor-pointer"
+        >
+          Export Map
+        </button>
+        <button
+          onClick={() => fileInputRef.current?.click()}
+          className="flex-1 px-4 py-2 rounded-full border border-mc-gray/15 text-sm font-medium text-mc-dark hover:bg-mc-dark/[0.03] transition-colors cursor-pointer"
+        >
+          Import Map
+        </button>
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/png,image/jpeg"
+          className="hidden"
+          onChange={(e) => {
+            const file = e.target.files?.[0];
+            if (file) onImportBarriers(file);
+            e.target.value = "";
+          }}
+        />
       </div>
 
       {/* Visualization mode */}
