@@ -304,9 +304,8 @@ void main() {
     float t = clamp((curl / curlScale + 1.0) * 0.5, 0.0, 1.0);
     color = divergingColor(t);
   } else {
-    // Density: adaptive range centered on 1.0
-    float dScale = max(u_densityScale, 0.01);
-    float t = clamp((rho - 1.0) / (2.0 * dScale) + 0.5, 0.0, 1.0);
+    // Density: fixed range ±0.1 around 1.0
+    float t = clamp((rho - 1.0) / 0.2 + 0.5, 0.0, 1.0);
     color = divergingColor(t);
   }
 

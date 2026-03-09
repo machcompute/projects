@@ -15,7 +15,6 @@ import {
   resetFlow,
   computeMaxSpeed,
   computeAvgDensity,
-  computeMaxDensityDev,
   computeCurl,
 } from "@/app/lib/lattice-boltzmann/lbm";
 import { presets } from "@/app/lib/lattice-boltzmann/presets";
@@ -35,6 +34,8 @@ const gridSizes: GridSize[] = [
   { label: "Small", cols: 200, rows: 80 },
   { label: "Medium", cols: 300, rows: 120 },
   { label: "Large", cols: 400, rows: 160 },
+  { label: "XL", cols: 600, rows: 240 },
+  { label: "XXL", cols: 800, rows: 320 },
 ];
 
 const DEFAULT_SIZE_INDEX = 1;
@@ -175,7 +176,6 @@ export function Simulation() {
           engine.downloadGrid(g);
           const maxSpd = computeMaxSpeed(g);
           const avgDen = computeAvgDensity(g);
-          const denScale = computeMaxDensityDev(g);
           const curl = computeCurl(g);
           let maxC = 0.001;
           for (let i = 0; i < curl.length; i++) {
@@ -190,7 +190,6 @@ export function Simulation() {
             maxSpeed: maxSpd,
             avgDensity: avgDen,
             maxCurl: maxC,
-            densityScale: denScale,
           }));
           framesSinceReadback.current = 0;
         }
@@ -366,7 +365,7 @@ export function Simulation() {
   return (
     <div className="flex flex-col lg:flex-row gap-6">
       {/* Canvas area */}
-      <div className="flex-1 min-w-0">
+      <div className="flex-1 min-w-0 lg:sticky lg:top-24 lg:self-start">
         <div className="rounded-2xl border border-mc-gray/15 bg-white overflow-hidden relative">
           {sim.computeMode === "gpu" ? (
             <WebGLCanvas

@@ -93,16 +93,8 @@ export function drawLBM(
     }
   }
 
-  // Adaptive density range: center on 1.0, scale to max deviation
-  let densityScale = 0.001;
-  if (visualMode === "density") {
-    for (let idx = 0; idx < rows * cols; idx++) {
-      if (barriers[idx]) continue;
-      const dev = Math.abs(density[idx] - 1.0);
-      if (dev > densityScale) densityScale = dev;
-    }
-    densityScale = Math.max(densityScale * 1.2, 0.01); // pad by 20%
-  }
+  // Fixed density range: ±0.1 around 1.0  →  [0.9, 1.1]
+  const densityScale = 0.1;
 
   // Use 1.5x max speed for normalization so the peak isn't at the ramp ceiling
   const speedScale = Math.max(maxSpeed * 1.5, 0.001);

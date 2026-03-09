@@ -279,7 +279,7 @@ export function Simulation() {
   return (
     <div className="flex flex-col lg:flex-row gap-6">
       {/* Canvas area */}
-      <div className="flex-1 min-w-0" data-canvas-container>
+      <div className="flex-1 min-w-0 lg:sticky lg:top-24 lg:self-start" data-canvas-container>
         <div className="rounded-2xl border border-mc-gray/15 bg-white overflow-hidden">
           <GraphCanvas
             nodes={graph.nodes}
