@@ -100,6 +100,12 @@ export default function Home() {
                 </h4>
                 <div className="flex flex-col gap-2">
                   <a
+                    href="https://orcid.org/0009-0005-6728-3089"
+                    className="text-sm text-white/60 hover:text-white transition-colors"
+                  >
+                    ORCID
+                  </a>
+                  <a
                     href="https://github.com/LukasAfonso"
                     className="text-sm text-white/60 hover:text-white transition-colors"
                   >
